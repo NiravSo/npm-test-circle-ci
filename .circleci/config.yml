@@ -3,10 +3,9 @@ orbs:
   node: circleci/node@1.1.6
 jobs:
   build-and-test:
-   filters:
-      branches:
-        only:
-          - master
+    branches:
+      only:
+        - master
     docker:
       - image: circleci/node:10.15.3
     steps:
@@ -35,7 +34,13 @@ workflows:
     build-and-test:
       jobs:
         - build-and-test
+            filters:
+              branches:
+                only: develop
         - package-publisher:
             requires:
               - build-and-test
+            filters:
+              branches:
+                only: develop
 
