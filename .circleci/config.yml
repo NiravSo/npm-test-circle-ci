@@ -20,7 +20,7 @@ jobs:
      - node/with-cache:
          steps:
            - run: mkdir ~/.npm-global && npm config set prefix '~/.npm-global' && export PATH=~/.npm-global/bin:$PATH && source ~/.profile
-           - run: npm install -g
+           - run: npm install -g my-test-package
 workflows:
     build-and-test:
       jobs:
