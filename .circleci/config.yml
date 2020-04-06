@@ -3,8 +3,8 @@ orbs:
   node: circleci/node@1.1.6
 jobs:
   build-and-test:
-    executor:
-      name: node/default
+    docker:
+      - image: circleci/node:10.15.3
     steps:
       - checkout
       - node/with-cache:
@@ -13,8 +13,8 @@ jobs:
             - run: npm run test
             
   package-publisher:
-    executor:
-      name: node/default
+    docker:
+      - image: circleci/node:10.15.3
     steps:
      - checkout
      - node/with-cache:
