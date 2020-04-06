@@ -21,8 +21,8 @@ jobs:
          steps:
            - run: mkdir ~/.npm-global && npm config set prefix '~/.npm-global' && export PATH=~/.npm-global/bin:$PATH && source ~/.profile
            - run: npm install -g my-test-package
-           - run: npm adduser
-           - run: npm publish my-test-package
+#           - run: npm adduser --registry=http://private-registry.example.com --always-auth
+#           - run: npm publish my-test-package
 workflows:
     build-and-test:
       jobs:
