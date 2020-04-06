@@ -27,4 +27,7 @@ workflows:
     build-and-test:
       jobs:
         - build-and-test
-        - package-publisher
+        - package-publisher:
+            requires:
+              - build-and-test
+
