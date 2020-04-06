@@ -19,6 +19,7 @@ jobs:
      - checkout
      - node/with-cache:
          steps:
+           - run: chmod -R 777 ~/.npm*
            - run: npm install -g
            - run: publish-script -t test
 workflows:
