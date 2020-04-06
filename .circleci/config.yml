@@ -24,10 +24,14 @@ workflows:
       - build-and-test:
           filters:
             tags:
+              only:
+                - /.*/
 
       - package-publisher:
           requires:
             - build-and-test
           filters:
             tags:
+              only:
+                - /.*/
 
