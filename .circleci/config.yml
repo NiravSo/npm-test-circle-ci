@@ -3,11 +3,11 @@ orbs:
   node: circleci/node@1.1.6
 jobs:
   build-and-test:
-    docker:
-      - image: circleci/node:10.15.3
     branches:
       only:
         - master
+    docker:
+      - image: circleci/node:10.15.3
     steps:
       - checkout
       - node/with-cache:
@@ -16,11 +16,11 @@ jobs:
             - run: npm run test
             
   package-publisher:
-    docker:
-      - image: circleci/node:10.15.3
     branches:
       only:
         - master
+    docker:
+      - image: circleci/node:10.15.3
     steps:
      - checkout
      - node/with-cache:
