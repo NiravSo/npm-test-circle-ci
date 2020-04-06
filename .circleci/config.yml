@@ -29,7 +29,7 @@ workflows:
   version: 2
   main:
     jobs:
-      - build-and-test
+      - build-and-test:
           branches:
             only: master
       - package-publisher:
