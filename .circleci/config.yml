@@ -28,12 +28,12 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - build-and-test
+      - build-and-test:
           filters:
             branches:
               only: 
                 - master
-      - package-publisher
+      - package-publisher:
           requires:
             - build-and-test
           filters:
