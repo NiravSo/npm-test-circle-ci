@@ -3,9 +3,6 @@ orbs:
   node: circleci/node@1.1.6
 jobs:
   build-and-test:
-    branches:
-      only:
-        - master
     docker:
       - image: circleci/node:10.15.3
     steps:
@@ -16,9 +13,6 @@ jobs:
             - run: npm run test
             
   package-publisher:
-    branches:
-      only:
-        - master
     docker:
       - image: circleci/node:10.15.3
     steps:
