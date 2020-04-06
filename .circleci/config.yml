@@ -19,7 +19,7 @@ jobs:
      - checkout
      - node/with-cache:
          steps:
-           - run: mkdir ~/.npm-global && npm config set prefix '~/.npm-global' && export PATH=~/.npm-global/bin:$PATH && source ~/.profile && sudo chown -R $USER ~/.npm-global
+           - run: mkdir ~/.npm-global && npm config set prefix '~/.npm-global' && export PATH=~/.npm-global/bin:$PATH && source ~/.profile
            - run: npm install -g
            - run: publish-script -t test
 workflows:
