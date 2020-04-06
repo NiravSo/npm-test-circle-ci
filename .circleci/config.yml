@@ -5,6 +5,9 @@ jobs:
   build-and-test:
     docker:
       - image: circleci/node:10.15.3
+    branches:
+     only:
+       - master
     steps:
       - checkout
       - node/with-cache:
@@ -15,6 +18,9 @@ jobs:
   package-publisher:
     docker:
       - image: circleci/node:10.15.3
+    branches:
+     only:
+       - master
     steps:
      - checkout
      - node/with-cache:
