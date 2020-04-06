@@ -12,15 +12,15 @@ jobs:
             - run: npm install
             - run: npm run test
             
-#  package-publisher:
-#    executor:
-#      name: node/default
-#    steps:
-#     - checkout
-#     - node/with-cache:
-#         steps:
-#           - run: npm install -g --publisher--
-#           - run: publish-script -t ${CI_BUILD_TAG}
+  package-publisher:
+    executor:
+      name: node/default
+    steps:
+     - checkout
+     - node/with-cache:
+         steps:
+           - run: npm install -g
+           - run: publish-script -t test
 workflows:
     build-and-test:
       jobs:
