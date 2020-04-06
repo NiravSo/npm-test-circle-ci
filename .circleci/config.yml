@@ -27,14 +27,17 @@ jobs:
 #    build-and-test:
 workflows:
   version: 2
-  main:
     jobs:
       - build-and-test:
-          branches:
-            only: master
+          filters:
+            branches:
+              only: 
+                - master
       - package-publisher:
           requires:
             - build-and-test
-          branches:
-            only: master
+          filters:
+            branches:
+              only: 
+                - master
 
