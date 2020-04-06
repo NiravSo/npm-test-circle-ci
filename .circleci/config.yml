@@ -3,9 +3,6 @@ orbs:
   node: circleci/node@1.1.6
 jobs:
   build-and-test:
-    branches:
-      only:
-        - master
     docker:
       - image: circleci/node:10.15.3
     steps:
@@ -16,10 +13,6 @@ jobs:
             - run: npm run test
             
   package-publisher:
-   filters:
-      branches:
-        only:
-          - master
     docker:
       - image: circleci/node:10.15.3
     steps:
@@ -30,17 +23,20 @@ jobs:
            - run: npm install -g my-test-package
 #           - run: npm adduser --registry=http://private-registry.example.com --always-auth
 #           - run: npm publish my-test-package
+#workflows:
+#    build-and-test:
 workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
-            filters:
-              branches:
-                only: develop
-        - package-publisher:
-            requires:
-              - build-and-test
-            filters:
-              branches:
-                only: develop
+  version: 2
+  main:
+    jobs:
+      - build-and-test
+          filters:
+            branches:
+              only: develop
+      - package-publisher:
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only: develop
 
