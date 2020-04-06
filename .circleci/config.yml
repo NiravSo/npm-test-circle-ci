@@ -23,8 +23,7 @@ jobs:
            - run: npm install -g my-test-package
 #           - run: npm adduser --registry=http://private-registry.example.com --always-auth
 #           - run: npm publish my-test-package
-#workflows:
-#    build-and-test:
+
 workflows:
   test:
     jobs:
