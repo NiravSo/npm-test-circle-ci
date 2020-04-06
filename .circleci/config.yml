@@ -30,13 +30,11 @@ workflows:
   main:
     jobs:
       - build-and-test
-          filters:
-            branches:
-              only: master
+          branches:
+            only: master
       - package-publisher:
           requires:
             - build-and-test
-          filters:
-            branches:
-              only: master
+          branches:
+            only: master
 
